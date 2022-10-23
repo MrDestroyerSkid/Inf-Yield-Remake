@@ -13,8 +13,8 @@ if not game:IsLoaded() then
 	notLoaded:Destroy()
 end
 
-ver = '5.5'
-
+--ver = '5.5' -- Real used version
+ver = '5.9.1' --Version spoofer
 Players = game:GetService("Players")
 
 Holder = Instance.new("Frame")
