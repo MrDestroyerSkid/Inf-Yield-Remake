@@ -1,4 +1,4 @@
---for inf yield creator, this is NOT a copy version of inf yield, we only remake the scripts to improve the UI, hope you understand
+--for inf yield creator, this is NOT a copy version of inf yield, we only remake the scripts to improve the UI for our own uses, hope you understand
 if IY_LOADED and not _G.IY_DEBUG == true then
 	error("Infinite Yield is already running!",0)
 	return
