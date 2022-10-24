@@ -181,7 +181,7 @@ if (not is_sirhurt_closure) and (syn and syn.protect_gui) then --sirhurt is reta
 elseif get_hidden_gui or gethui then
 	local hiddenUI = get_hidden_gui or gethui
 	local Main = Instance.new("ScreenGui")
-	Main.Name = randomString()..tostring(math.random(1,100))..tostring(math,random(1,10))..randomString()
+	Main.Name = randomString()..math.random(1,100)..math.random(1,10)..randomString()
 	Main.Parent = hiddenUI()
 	PARENT = Main
 elseif COREGUI:FindFirstChild('RobloxGui') then
@@ -218,7 +218,7 @@ Title.BorderSizePixel = 0
 Title.Size = UDim2.new(0, 250, 0, 20)
 Title.Font = Enum.Font.SourceSans
 Title.TextSize = 18
-Title.Text = "Inf Yield Remaked BETA v"..ver
+Title.Text = "Inf Yield Remastered v1"--..ver
 Title.TextColor3 = Color3.new(1, 1, 1)
 Title.ZIndex = 10
 table.insert(shade1,Title)
@@ -4437,6 +4437,7 @@ CMDs[#CMDs + 1] = {NAME = 'remotespy / rspy', DESC = 'Opens FrostHook Spy'}
 CMDs[#CMDs + 1] = {NAME = 'audiologger / alogger', DESC = 'Opens Edges audio logger'}
 CMDs[#CMDs + 1] = {NAME = 'serverinfo / info', DESC = 'Gives you info about the server'}
 CMDs[#CMDs + 1] = {NAME = 'jobid', DESC = 'Copies the games JobId to your clipboard'}
+CMDs[#CMDs + 1] = {NAME = 'copy / setclipboard', DESC = 'Copies text to your clipbord'}
 CMDs[#CMDs + 1] = {NAME = 'notifyjobid', DESC = 'Notifies you the games JobId'}
 CMDs[#CMDs + 1] = {NAME = 'rejoin / rj', DESC = 'Makes you rejoin the game'}
 CMDs[#CMDs + 1] = {NAME = 'autorejoin / autorj', DESC = 'Automatically rejoins the server if you get kicked/disconnected'}
@@ -4575,8 +4576,8 @@ CMDs[#CMDs + 1] = {NAME = 'notifyfreecamposition / notifyfcpos', DESC = 'Noitifi
 CMDs[#CMDs + 1] = {NAME = 'copyfreecamposition / copyfcpos', DESC = 'Copies your freecam coordinates to your clipboard'}
 CMDs[#CMDs + 1] = {NAME = 'gotocamera / gotocam', DESC = 'Teleports you to the location of your camera'}
 CMDs[#CMDs + 1] = {NAME = 'tweengotocam / tgotocam', DESC = 'Tweens you to the location of your camera'}
-CMDs[#CMDs + 1] = {NAME = 'firstp', DESC = 'Forces camera to go into first person'}
-CMDs[#CMDs + 1] = {NAME = 'thirdp', DESC = 'Allows camera to go into third person'}
+CMDs[#CMDs + 1] = {NAME = 'firstp / firstperson', DESC = 'Forces camera to go into first person'}
+CMDs[#CMDs + 1] = {NAME = 'thirdp / thirdperson', DESC = 'Allows camera to go into third person'}
 CMDs[#CMDs + 1] = {NAME = 'noclipcam / nccam', DESC = 'Allows camera to go through objects like walls'}
 CMDs[#CMDs + 1] = {NAME = 'maxzoom [num]', DESC = 'Maximum camera zoom'}
 CMDs[#CMDs + 1] = {NAME = 'minzoom [num]', DESC = 'Minimum camera zoom'}
@@ -4610,7 +4611,7 @@ CMDs[#CMDs + 1] = {NAME = 'firetouchinterests / touchinterests', DESC = 'Uses al
 CMDs[#CMDs + 1] = {NAME = 'noproximitypromptlimits / nopplimits', DESC = 'Sets all proximity prompts MaxActivationDistance to math.huge'}
 CMDs[#CMDs + 1] = {NAME = 'fireproximityprompts / firepp', DESC = 'Uses all proximity prompts in a game'}
 CMDs[#CMDs + 1] = {NAME = 'simulationradius / simradius', DESC = 'Sets your SimulationRadius to math.huge'}
-CMDs[#CMDs + 1] = {NAME = 'nosimulationradius / nosimradius', DESC = 'Turns off the SimulationRadius loop and restores values to default'}
+CMDs[#CMDs + 1] = {NAME = 'nosimulationradius / nosimradius / unsimradius', DESC = 'Turns off the SimulationRadius loop and restores values to default'}
 CMDs[#CMDs + 1] = {NAME = 'tpunanchored / tpua [plr]', DESC = 'Teleports unanchored parts to a player'}
 CMDs[#CMDs + 1] = {NAME = 'freezeunanchored / freezeua', DESC = 'Freezes unanchored parts'}
 CMDs[#CMDs + 1] = {NAME = 'thawunanchored / thawua / unfreezeua', DESC = 'Thaws unanchored parts'}
@@ -4623,6 +4624,7 @@ CMDs[#CMDs + 1] = {NAME = 'loopfullbright / loopfb (CLIENT)', DESC = 'Makes the 
 CMDs[#CMDs + 1] = {NAME = 'unloopfullbright / unloopfb', DESC = 'Unloops fullbright'}
 CMDs[#CMDs + 1] = {NAME = 'ambient [num] [num] [num] (CLIENT)', DESC = 'Changes ambient'}
 CMDs[#CMDs + 1] = {NAME = 'day (CLIENT)', DESC = 'Changes the time to day for the client'}
+CMDs[#CMDs + 1] = {NAME = 'sunset / sunrise (CLIENT)', DESC = 'Changes the time to sunset/sunrise for the client'}
 CMDs[#CMDs + 1] = {NAME = 'night (CLIENT)', DESC = 'Changes the time to night for the client'}
 CMDs[#CMDs + 1] = {NAME = 'nofog (CLIENT)', DESC = 'Removes fog'}
 CMDs[#CMDs + 1] = {NAME = 'brightness [num] (CLIENT)', DESC = 'Changes the brightness lighting property'}
@@ -4770,8 +4772,8 @@ CMDs[#CMDs + 1] = {NAME = 'autoclick [click delay] [release delay]', DESC = 'Aut
 CMDs[#CMDs + 1] = {NAME = 'unautoclick / noautoclick', DESC = 'Turns off autoclick'}
 CMDs[#CMDs + 1] = {NAME = 'autokeypress [key] [down delay] [up delay]', DESC = 'Automatically presses a key with a set delay'}
 CMDs[#CMDs + 1] = {NAME = 'unautokeypress', DESC = 'Stops autokeypress'}
-CMDs[#CMDs + 1] = {NAME = 'hovername', DESC = 'Shows a players username when your mouse is hovered over them'}
-CMDs[#CMDs + 1] = {NAME = 'unhovername / nohovername', DESC = 'Turns off hovername'}
+CMDs[#CMDs + 1] = {NAME = 'hovername / hname', DESC = 'Shows a players username when your mouse is hovered over them'}
+CMDs[#CMDs + 1] = {NAME = 'unhovername / nohovername / unhname', DESC = 'Turns off hovername'}
 CMDs[#CMDs + 1] = {NAME = 'mousesensitivity / ms [0-10]', DESC = 'Sets your mouse sensitivity (affects first person and right click drag) (default is 1)'}
 CMDs[#CMDs + 1] = {NAME = 'clickdelete', DESC = 'Go to settings>Keybinds>Add for clicktp'}
 CMDs[#CMDs + 1] = {NAME = 'clickteleport', DESC = 'Go to settings>Keybinds>Add for click tp'}
@@ -4804,6 +4806,7 @@ CMDs[#CMDs + 1] = {NAME = 'breakloops / break (cmd loops)', DESC = 'Stops any cm
 CMDs[#CMDs + 1] = {NAME = 'removecmd / deletecmd', DESC = 'Removes a command until the admin is reloaded'}
 CMDs[#CMDs + 1] = {NAME = 'tpwalk / teleportwalk [num]', DESC = 'Teleports you to your move direction'}
 CMDs[#CMDs + 1] = {NAME = 'untpwalk / unteleportwalk', DESC = 'Undoes tpwalk / teleportwalk'}
+CMDs[#CMDs + 1] = {NAME = '', DESC = ''}
 CMDs[#CMDs + 1] = {NAME = 'notifyping / ping', DESC = 'Notify yourself your ping'}
 wait()
 
@@ -6820,9 +6823,10 @@ end)
 addcmd('rejoin',{'rj'},function(args, speaker)
 	if #Players:GetPlayers() <= 1 then
 		Players.LocalPlayer:Kick("\nRejoining...")
-		wait()
+		wait(0.1)
 		game:GetService('TeleportService'):Teleport(game.PlaceId, Players.LocalPlayer)
 	else
+	task.wait(0.1)
 		game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId, game.JobId, Players.LocalPlayer)
 	end
 end)
@@ -7680,7 +7684,8 @@ addcmd('clearerror',{'clearerrors'},function(args, speaker)
 end)
 
 addcmd('clientantikick',{'antikick'},function(args, speaker)
-loadstring("game:HttpGet("https://pastebin.com/raw/nJQMG7dU"))()
+--loadstring("game:HttpGet("https://pastebin.com/raw/nJQMG7dU"))()
+notify("Antikick dosen't available at these moment, sorry!")
 end)
 
 allow_rj = true
@@ -8357,11 +8362,11 @@ addcmd('enableshiftlock',{'enablesl','shiftlock'},function(args, speaker)
 	notify('Shiftlock','Shift lock is now available')
 end)
 
-addcmd('firstp',{},function(args, speaker)
+addcmd('firstp',{'firstperson'},function(args, speaker)
 	speaker.CameraMode = "LockFirstPerson"
 end)
 
-addcmd('thirdp',{},function(args, speaker)
+addcmd('thirdp',{'thirdperson'},function(args, speaker)
 	speaker.CameraMode = "Classic"
 end)
 
@@ -8604,6 +8609,10 @@ addcmd('copyid',{'copyuserid'},function(args, speaker)
 		local id = tostring(Players[v].UserId)
 		toClipboard(id)
 	end
+end)
+
+addcmd('copy',{'setclipboard'},function(args, speaker)
+	toClipboard(tostring(args[1]))
 end)
 
 addcmd('creatorid',{'creator'},function(args, speaker)
@@ -9026,6 +9035,7 @@ addcmd('unmuteboombox',{},function(args, speaker)
 end)
 
 addcmd('reset',{},function(args, speaker)
+	speaker.Character:FindFirstChildOfClass"Humanoid".Health = 0
 	speaker.Character:BreakJoints()
 end)
 
@@ -10521,13 +10531,14 @@ end)
 
 simRadius = false
 addcmd('simulationradius',{'simradius'},function(args, speaker)
-	if sethidden then		
+	local sethid = sethidden or sethiddenproperty
+	if sethid then		
 		simRadLoop = game:GetService('RunService').Stepped:Connect(function()
 			if setsimulation then
 				setsimulation(1e308, 1/0)
 			else	
-				sethidden(speaker,"MaximumSimulationRadius",1/0)
-				sethidden(speaker,"SimulationRadius", 1e308)
+				sethid(speaker,"MaximumSimulationRadius",1/0)
+				sethid(speaker,"SimulationRadius", 1e308)
 			end
 		end)
 		simRadius = true
@@ -10537,14 +10548,15 @@ addcmd('simulationradius',{'simradius'},function(args, speaker)
 end)
 
 addcmd('nosimulationradius',{'nosimradius','unsimradius'},function(args, speaker)
-	if sethidden then		
+	local sethid = sethidden or sethiddenproperty
+		if sethid then		
 		if simRadLoop then simRadLoop:Disconnect() end
 		wait()
 		if setsimulation then
 			setsimulation(139,139)
 		else	
-			sethidden(speaker,"MaximumSimulationRadius",139)
-			sethidden(speaker,"SimulationRadius", 139)
+			sethid(speaker,"MaximumSimulationRadius",139)
+			sethid(speaker,"SimulationRadius", 139)
 		end
 		simRadius = false
 	else
@@ -10933,7 +10945,9 @@ end)
 addcmd('day',{},function(args, speaker)
 	game:GetService("Lighting").ClockTime = 14
 end)
-
+addcmd('sunset',{'sunrise'},function(args,speaker)
+	game:GetService("Lighting").ClockTime = 6.2
+end)
 addcmd('night',{},function(args, speaker)
 	game:GetService("Lighting").ClockTime = 0
 end)
@@ -11602,7 +11616,7 @@ end)
 
 local nameBox = nil
 local nbSelection = nil
-addcmd('hovername',{},function(args, speaker)
+addcmd('hovername',{'hname'},function(args, speaker)
 	execCmd('unhovername')
 	wait()
 	nameBox = Instance.new("TextLabel")
@@ -11658,7 +11672,7 @@ addcmd('hovername',{},function(args, speaker)
 	nbUpdateFunc = IYMouse.Move:Connect(updateNameBox)
 end)
 
-addcmd('unhovername',{'nohovername'},function(args, speaker)
+addcmd('unhovername',{'nohovername','unhname'},function(args, speaker)
 	if nbUpdateFunc then
 		nbUpdateFunc:Disconnect()
 		nameBox:Destroy()
@@ -12263,4 +12277,4 @@ Logo:Destroy()
 Credits:Destroy()
 IntroBackground:Destroy()
 minimizeHolder()
-notify('Inf Yield Remake BETA, Made By posterRetarded64#0870')
+notify('Inf Yield Remastered BETA, Made by posterRetarded64#0870')
