@@ -10080,7 +10080,7 @@ addcmd('audiologger',{'alogger'},function(args, speaker)
 end)
 
 local loopgoto = nil
-addcmd('loopgoto',{},function(args, speaker)
+addcmd('loopgoto',{'loopgt'},function(args, speaker)
 	local players = getPlayer(args[1], speaker)
 	for i,v in pairs(players)do
 		loopgoto = nil
